@@ -21,6 +21,7 @@ try {
     $target = Join-Path $game 'PWAAT_Data/Managed/Assembly-CSharp.dll'
     $runtime = Join-Path $game 'PWAAT_Data/Managed/PwaatFurigana.dll'
     $readings = Join-Path $game 'PWAAT_Data/StreamingAssets/Furigana/readings.tsv'
+    $lexicon = Join-Path $game 'PWAAT_Data/StreamingAssets/Furigana/lexicon.tsv'
     $backup = Join-Path $game 'furigana-mod/backups/Assembly-CSharp.dll'
     if (!(Test-Path -LiteralPath $target -PathType Leaf)) { throw 'Place furigana-mod beside PWAAT.exe, or pass -GameDirectory.' }
     if (Get-Process -Name PWAAT -ErrorAction SilentlyContinue) { throw 'Close the game before installing or uninstalling.' }
@@ -34,8 +35,9 @@ try {
         RequireHash $backup $manifest.original_sha256
         Copy-Item -LiteralPath $backup -Destination $target -Force
         RequireHash $target $manifest.original_sha256
-        if ((Test-Path -LiteralPath $runtime) -and (FileHash $runtime) -eq $manifest.runtime_sha256) { Remove-Item -LiteralPath $runtime }
-        if ((Test-Path -LiteralPath $readings) -and (FileHash $readings) -eq $manifest.readings_sha256) { Remove-Item -LiteralPath $readings }
+        if ((Test-Path -LiteralPath $runtime) -and (@($manifest.runtime_sha256) + @($manifest.previous_runtime_sha256)) -contains (FileHash $runtime)) { Remove-Item -LiteralPath $runtime }
+        if ((Test-Path -LiteralPath $readings) -and (@($manifest.readings_sha256) + @($manifest.previous_readings_sha256)) -contains (FileHash $readings)) { Remove-Item -LiteralPath $readings }
+        if ((Test-Path -LiteralPath $lexicon) -and (FileHash $lexicon) -eq $manifest.lexicon_sha256) { Remove-Item -LiteralPath $lexicon }
         Write-Host 'Original game restored. Your backup is retained.'
         exit 0
     }
@@ -43,13 +45,14 @@ try {
     foreach ($payload in $manifest.payloads) {
         RequireHash (Join-Path $PSScriptRoot $payload.path) $payload.sha256
     }
-    foreach ($pair in @(@($runtime, $manifest.runtime_sha256), @($readings, $manifest.readings_sha256))) {
-        if (Test-Path -LiteralPath $pair[0]) { RequireHash $pair[0] $pair[1] }
-    }
+    if ((Test-Path -LiteralPath $runtime) -and (@($manifest.runtime_sha256) + @($manifest.previous_runtime_sha256)) -notcontains (FileHash $runtime)) { throw 'Existing runtime differs from a known release.' }
+    if ((Test-Path -LiteralPath $readings) -and (@($manifest.readings_sha256) + @($manifest.previous_readings_sha256)) -notcontains (FileHash $readings)) { throw 'Existing reading data differs from a known release.' }
+    if (Test-Path -LiteralPath $lexicon) { RequireHash $lexicon $manifest.lexicon_sha256 }
     if (Test-Path -LiteralPath $backup) { RequireHash $backup $manifest.original_sha256 }
     if ($currentHash -eq $manifest.patched_sha256) {
         RequireHash $backup $manifest.original_sha256
-        if ((Test-Path -LiteralPath $runtime) -and (Test-Path -LiteralPath $readings)) {
+        if ((Test-Path -LiteralPath $runtime) -and (FileHash $runtime) -eq $manifest.runtime_sha256 -and
+            (Test-Path -LiteralPath $readings) -and (FileHash $readings) -eq $manifest.readings_sha256 -and (Test-Path -LiteralPath $lexicon)) {
             Write-Host 'Furigana patch is already installed and verified.'; exit 0
         }
         $original = $backup
@@ -58,7 +61,7 @@ try {
     Write-Host 'Verifying Japanese game assets...'
     $assetFiles = @()
     foreach ($asset in $manifest.sources) {
-        if ($asset.path -notmatch '^PWAAT_Data/StreamingAssets/GS[123]/scenario/[A-Za-z0-9_.-]+\.mdt$') { throw 'Invalid asset path in manifest.' }
+        if ($asset.path -notmatch '^PWAAT_Data/StreamingAssets/(GS[123]/scenario/[A-Za-z0-9_.-]+\.(mdt|bin|cho)|menu/text/[A-Za-z0-9_.-]+\.bin)$') { throw 'Invalid asset path in manifest.' }
         $path = Join-Path $game $asset.path
         RequireHash $path $asset.sha256
         $assetFiles += $path
@@ -90,10 +93,12 @@ try {
     New-Item -ItemType Directory -Path (Split-Path -Parent $readings) -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'payload/PwaatFurigana.dll') -Destination $runtime -Force
     Copy-Item -LiteralPath $stagedReadings -Destination $readings -Force
+    Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'payload/lexicon.tsv') -Destination $lexicon -Force
     Copy-Item -LiteralPath $stagedAssembly -Destination $target -Force
     RequireHash $target $manifest.patched_sha256
     RequireHash $runtime $manifest.runtime_sha256
     RequireHash $readings $manifest.readings_sha256
+    RequireHash $lexicon $manifest.lexicon_sha256
     Write-Host "Installed and verified $count Japanese reading entries. In Japanese Options, use Furigana ON/OFF, or press F8 in-game."
 } catch {
     Write-Host ('Patch failed: ' + $_.Exception.Message) -ForegroundColor Red

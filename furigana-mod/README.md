@@ -10,14 +10,16 @@ top-right corner. **F8** also toggles readings during gameplay, with a brief
 status message. The preference is remembered between launches and starts on.
 The button and readings are hidden in other languages.
 
-Readings appear above the kanji in the three dialogue rows across all three
-games. A reading appears after its complete word is visible. The overlay follows
-the existing font, color, and quotation spacing. It does not change the dialogue
-text or scenario cursor. Menus, evidence descriptions outside the dialogue box,
-speaker nameplates, and text baked into images are outside this patch's scope.
+Readings appear above kanji in dialogue and all active Unity UI text: menus,
+choices, evidence descriptions, and profiles across all three games. Dialogue
+readings appear after their complete word is visible. The overlay follows the
+existing font, color, quotation spacing, and camera layer without changing the
+original text or scenario cursor. Text baked into images is outside this patch's
+scope; the game's speaker-name sprites already use kana.
 
-The offline data contains 77,504 lines and 141,589 reading spans from 106 Japanese
-MDT files. Readings were generated with fugashi/UniDic, plus the character-name
+The offline data contains 81,010 lines and 151,351 reading spans from 106 Japanese
+MDT files and 27 menu/choice/evidence text files. A fallback lexicon contains
+11,007 words and individual kanji for composite UI strings. Readings were generated with fugashi/UniDic, plus the character-name
 and vocabulary corrections in `name-readings.json`. Automated readings can still
 misinterpret unusual names, wordplay, and ambiguous kanji. No network connection,
 Python, or .NET SDK is needed to play.
@@ -27,21 +29,25 @@ entry, including partial words, ambiguous prefixes, restored text, rich-text
 offsets, and character-name overrides. Static verification confirms exactly two
 changed method bodies and 9,445 unchanged bodies; the original backup's hash,
 runtime CLR compatibility, dependency files, and data hashes are checked.
-Restoring and reinstalling were also exercised. **The Windows game was not
-launched here: this Linux environment has no Wine/Windows runtime. The in-game
-layout, clicks, hotkey, and saved preference still need a play test.**
+Restoring, reinstalling, and upgrading from the previous alpha were also
+exercised. A Wine 8.0/Xvfb attempt could not start the player because Steam was
+unavailable. **The in-game layout, clicks, hotkey, and saved preference still
+need a Windows play test.** Every kanji in 3,582 extracted UI text samples was
+covered by the actual runtime DLL's reading lookup.
 
 ## Files and restoring
 
 - `../PWAAT_Data/Managed/Assembly-CSharp.dll`: patched game assembly.
 - `../PWAAT_Data/Managed/PwaatFurigana.dll`: added overlay and lookup code.
-- `../PWAAT_Data/StreamingAssets/Furigana/readings.tsv`: offline readings.
+- `../PWAAT_Data/StreamingAssets/Furigana/readings.tsv`: contextual readings.
+- `../PWAAT_Data/StreamingAssets/Furigana/lexicon.tsv`: composite UI fallback.
 - `backups/Assembly-CSharp.dll`: untouched original game assembly, created locally
   during patching and excluded from this repository.
 - `evidence/`: original-build identification, patch and data hashes.
 
-To move the modification to Windows, copy these three installed files to the
-same relative locations in the **same game build**. Keep the original backup.
+To move the modification to Windows, copy these four installed files to the
+same relative locations in the **same game build**, including `lexicon.tsv`.
+Keep the original backup. For distribution, use the release installer instead.
 This patch supports original Assembly-CSharp.dll SHA-256
 `8c419d19c86812497cabf9e29b2c87651156a2d705176dadbfec9b066747d15f`.
 
@@ -86,7 +92,9 @@ ILSpy 9.1 recovered the relevant C# behavior; Mono.Cecil 0.11.6 applied the hook
 `MessageSystem.SetCharacter(MessageWork, char)` captures the full line before
 its first character. `MdtData` stores encoded UTF-16 characters plus control
 instructions; opcode 128 is a timing command, not a printable NUL. The overlay
-uses `messageBoardCtrl.line_list` and preserves `MessageText` color markup.
+uses `messageBoardCtrl.line_list` and discovers other active `UnityEngine.UI.Text`
+components, while preserving color markup. Labels inherit the source's layer:
+dialogue uses layer 8, and its camera's culling mask is 256 (Default is excluded).
 The original Japanese renderer has no furigana path in these inspected types.
 Detailed type tokens, method identities, and source hashes are recorded under
 `evidence/`. Tokens identify this particular original build.

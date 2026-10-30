@@ -1,8 +1,13 @@
 # Phoenix Wright: Ace Attorney Trilogy — Japanese Furigana
 
 An unofficial offline furigana toggle for the Windows Unity/Mono version of
-Phoenix Wright: Ace Attorney Trilogy. It adds readings above kanji in the three
-dialogue rows across all three games.
+Phoenix Wright: Ace Attorney Trilogy. It adds readings above kanji in dialogue,
+choices, menus, profiles, and evidence text across all three games.
+
+**v0.2.0-alpha.1 fixes invisible furigana:** the previous runtime put its labels
+on Unity's Default layer, which the game's text cameras exclude. Labels now
+inherit each source text's layer. This version also discovers all active UI
+texts and includes the menu/evidence text tables and an offline word fallback.
 
 **Preview release:** the reading lookup and installer are tested, but the
 Windows game has not been launched in the development environment. In-game
@@ -24,8 +29,12 @@ No Python, .NET SDK, or mod loader is required to install or play.
 
 Readings start enabled and the preference is saved between launches. The button
 and readings are hidden in other languages. Readings appear only after the
-complete word is visible. Menus, evidence descriptions outside dialogue,
-nameplates, and text baked into images are outside the mod's scope.
+complete word is visible in dialogue. Complete UI text uses full-text readings
+with a word/character fallback for strings assembled by the game. Text baked
+into images, logos, and backgrounds is outside the mod's scope.
+
+To upgrade from v0.1.0-alpha.1, close the game, replace the `furigana-mod` files
+with the new ZIP, keep `furigana-mod/backups`, and run **Install.cmd** again.
 
 The ZIP contains an assembly patcher, the mod's own DLL, and reading annotations keyed
 by hashes. Installation reconstructs the patched assembly and reading table from
@@ -40,8 +49,9 @@ The original `PWAAT_Data/Managed/Assembly-CSharp.dll` must have SHA-256:
 8c419d19c86812497cabf9e29b2c87651156a2d705176dadbfec9b066747d15f
 ```
 
-The installer also checks the 106 Japanese scenario files used to build the
-77,504 reading entries. Other game builds and already modified assemblies are
+The installer also checks 106 Japanese scenario files and 27 UI/choice text
+files used to build 81,010 reading entries. The fallback lexicon contains
+11,007 words/characters. Other game builds and unexpectedly modified assemblies are
 rejected before installation.
 
 To uninstall, close the game and run **furigana-mod/Uninstall.cmd**. The original
@@ -57,15 +67,17 @@ after uninstalling. Existing saves are not edited.
   and the initial validation record.
 - [`release`](release): Windows installer and reproducible release packaging.
 
-The original source-build validation covered 77,504 lines and 141,589 reading
-spans. Exactly two method bodies are hooked; 9,445 method bodies remain unchanged.
+The reading validation covers 81,010 lines and 151,351 reading spans, including
+the opening date/location, composite/multiline strings, and every kanji in 3,582
+extracted UI text samples. Exactly two
+method bodies are hooked; 9,445 method bodies remain unchanged.
 See [developer instructions](furigana-mod/README.md) for source builds. Place that
 `furigana-mod` folder inside your game directory before running its build tools.
 
 Build a release from an already generated and verified local installation:
 
 ```sh
-python3 release/build_release.py --game-dir /path/to/game --version v0.1.0-alpha.1
+python3 release/build_release.py --game-dir /path/to/game --version v0.2.0-alpha.1
 ```
 
 The packaging script verifies the source hashes. Test
@@ -74,7 +86,7 @@ before publishing. `dist/` and local game backups are excluded from Git.
 
 ```sh
 python3 release/test_release.py --game-dir /path/to/game \
-  --archive dist/phoenix-wright-furigana-v0.1.0-alpha.1-windows.zip --pwsh pwsh
+  --archive dist/phoenix-wright-furigana-v0.2.0-alpha.1-windows.zip --pwsh pwsh
 ```
 
 The installer is written for Windows PowerShell 5.1 and also supports PowerShell

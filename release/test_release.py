@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--archive', type=Path, required=True)
     parser.add_argument('--pwsh', default='pwsh')
     parser.add_argument('--report', type=Path)
+    parser.add_argument('--previous-archive', type=Path)
     args = parser.parse_args()
     shell_version = subprocess.check_output([args.pwsh,'-NoProfile','-NonInteractive','-Command','$PSVersionTable.PSVersion.ToString()'],text=True).strip()
     results = []
@@ -45,6 +46,7 @@ def main():
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(args.game_dir/asset['path'], dest)
         readings = fixture/'PWAAT_Data/StreamingAssets/Furigana/readings.tsv'
+        lexicon = fixture/'PWAAT_Data/StreamingAssets/Furigana/lexicon.tsv'
         backup = package/'backups/Assembly-CSharp.dll'
 
         def run(mode, succeeds=True):
@@ -59,17 +61,34 @@ def main():
         assert sha(target) == manifest['patched_sha256']
         assert sha(runtime) == manifest['runtime_sha256']
         assert sha(readings) == manifest['readings_sha256']
+        assert sha(lexicon) == manifest['lexicon_sha256']
         assert backup.read_bytes() == original
-        results.append('fresh install reconstructs exact verified assembly and 77,504 reading entries')
+        results.append('fresh install reconstructs exact verified assembly, expanded UI readings and fallback lexicon')
         run('Install')
         assert backup.read_bytes() == original
         results.append('repeat install is idempotent and preserves the original backup')
         run('Uninstall')
-        assert target.read_bytes() == original and not runtime.exists() and not readings.exists()
+        assert target.read_bytes() == original and not runtime.exists() and not readings.exists() and not lexicon.exists()
         assert backup.read_bytes() == original
         results.append('uninstall restores exact original and retains backup')
         run('Uninstall')
         results.append('repeat uninstall succeeds')
+
+        if args.previous_archive:
+            previous = fixture/'previous'
+            with zipfile.ZipFile(args.previous_archive) as archive:
+                archive.extractall(previous)
+            old = subprocess.run([args.pwsh,'-NoProfile','-NonInteractive','-File',str(previous/'furigana-mod/Patch.ps1'),
+                                  '-GameDirectory',str(fixture),'-Mode','Install'],text=True,capture_output=True)
+            assert old.returncode == 0, old.stdout + old.stderr
+            assert sha(runtime) in manifest['previous_runtime_sha256']
+            assert sha(readings) in manifest['previous_readings_sha256']
+            assert not lexicon.exists()
+            run('Install')
+            assert sha(runtime) == manifest['runtime_sha256'] and sha(readings) == manifest['readings_sha256']
+            assert sha(lexicon) == manifest['lexicon_sha256'] and backup.read_bytes() == original
+            run('Uninstall')
+            results.append('upgrade from the actual previous alpha replaces the runtime/data and retains original backup')
 
         bad = original[:-1] + bytes([original[-1]^1])
         target.write_bytes(bad)

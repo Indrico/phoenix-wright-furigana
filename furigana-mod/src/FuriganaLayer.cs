@@ -15,7 +15,9 @@ namespace PwaatFurigana
         private bool showReadings;
         private bool failed;
         private float statusUntil;
+        private float nextScan;
         private readonly List<Line> lines = new List<Line>();
+        private readonly HashSet<Text> labels = new HashSet<Text>();
 
         private sealed class Line
         {
@@ -43,7 +45,9 @@ namespace PwaatFurigana
             try
             {
                 using (StreamReader reader = new StreamReader(Path.Combine(Application.streamingAssetsPath, "Furigana/readings.tsv"), Encoding.UTF8))
-                    readings = new ReadingIndex(reader);
+                using (StreamReader words = new StreamReader(Path.Combine(Application.streamingAssetsPath, "Furigana/lexicon.tsv"), Encoding.UTF8))
+                    readings = new ReadingIndex(reader, words);
+                Debug.Log("[Furigana] Japanese text overlay loaded.");
             }
             catch (Exception error)
             {
@@ -139,24 +143,31 @@ namespace PwaatFurigana
         {
             bool active = !failed && showReadings && IsJapanese();
             messageBoardCtrl board = messageBoardCtrl.instance;
+            if (active && Time.unscaledTime >= nextScan)
+            {
+                nextScan = Time.unscaledTime + 0.25f;
+                // Texts are also created when opening menus and evidence screens.
+                // Never register our own labels as sources.
+                foreach (Text source in FindObjectsOfType(typeof(Text)))
+                    if (!labels.Contains(source)) GetLine(source);
+            }
             if (active && board != null)
                 foreach (Text source in board.line_list)
                     if (source != null) GetLine(source);
             foreach (Line line in lines)
             {
                 if (line.Source == null) continue;
-                bool visible = active && board != null && board.line_list.Contains(line.Source)
-                    && line.Source.isActiveAndEnabled && line.Source.color.a > 0f;
-                if (visible) Render(line);
+                bool visible = active && line.Source.isActiveAndEnabled && line.Source.color.a > 0f;
+                if (visible) Render(line, board != null && board.line_list.Contains(line.Source));
                 else foreach (Text label in line.Labels) label.gameObject.SetActive(false);
             }
         }
 
-        private void Render(Line line)
+        private void Render(Line line, bool dialogue)
         {
             Text source = line.Source;
-            string plain = ReadingIndex.PlainText(source.text);
-            if (plain.Length == 0)
+            string plain = source.supportRichText ? ReadingIndex.PlainText(source.text) : source.text;
+            if (!ReadingIndex.ContainsKanji(plain))
             {
                 foreach (Text label in line.Labels) label.gameObject.SetActive(false);
                 line.LastText = null;
@@ -164,7 +175,7 @@ namespace PwaatFurigana
             }
             if (line.LastText != source.text || line.LastFont != source.font)
             {
-                line.Spans = readings.Resolve(plain, line.FullText);
+                line.Spans = dialogue ? readings.Resolve(plain, line.FullText) : readings.ResolveText(plain);
                 line.LastText = source.text;
                 line.LastFont = source.font;
             }
@@ -208,6 +219,9 @@ namespace PwaatFurigana
                 else
                 {
                     GameObject obj = new GameObject("Furigana", typeof(RectTransform));
+                    // Parenting does not inherit a Unity layer. The game's text
+                    // cameras exclude Default (0); dialogue is on layer 8.
+                    obj.layer = source.gameObject.layer;
                     obj.transform.SetParent(source.transform, false);
                     label = obj.AddComponent<Text>();
                     label.raycastTarget = false;
@@ -216,18 +230,21 @@ namespace PwaatFurigana
                     label.horizontalOverflow = HorizontalWrapMode.Overflow;
                     label.verticalOverflow = VerticalWrapMode.Overflow;
                     line.Labels.Add(label);
+                    labels.Add(label);
                 }
                 used++;
                 label.font = source.font;
+                label.gameObject.layer = source.gameObject.layer;
                 label.fontStyle = source.fontStyle;
-                label.fontSize = Mathf.Max(12, Mathf.RoundToInt(source.fontSize * 0.30f));
+                float fontSize = source.resizeTextForBestFit ? line.Generator.fontSizeUsedForBestFit : source.fontSize;
+                label.fontSize = Mathf.Max(8, Mathf.RoundToInt(fontSize * 0.30f));
                 label.text = span.Reading;
                 label.color = line.Mesh[span.Start * 6].color;
                 label.rectTransform.anchorMin = label.rectTransform.anchorMax = source.rectTransform.pivot;
                 label.rectTransform.pivot = new Vector2(0.5f, 0f);
-                float available = right - left + source.fontSize * 0.10f;
+                float available = right - left + fontSize * 0.10f;
                 float width = Mathf.Max(available, label.preferredWidth);
-                label.rectTransform.sizeDelta = new Vector2(width, source.fontSize * 0.34f);
+                label.rectTransform.sizeDelta = new Vector2(width, Mathf.Max(label.fontSize * 1.5f, fontSize * 0.34f));
                 label.rectTransform.anchoredPosition = new Vector2((left + right) / 2f, top + 1f);
                 label.rectTransform.localScale = new Vector3(Mathf.Min(1f, available / width), 1f, 1f);
                 label.gameObject.SetActive(true);

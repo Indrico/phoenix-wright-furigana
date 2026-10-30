@@ -38,6 +38,20 @@ public static class PwaatReleasePatch
                 data = decryptor.TransformFinalBlock(encrypted, 0, encrypted.Length);
             }
         }
+        if (!path.EndsWith(".mdt", StringComparison.OrdinalIgnoreCase))
+        {
+            int cursor = 0;
+            while (cursor + 2 <= data.Length)
+            {
+                cursor += 2; // ushort text id, followed by a UTF-16 NUL record
+                int begin = cursor;
+                while (cursor + 2 <= data.Length && BitConverter.ToUInt16(data, cursor) != 0) cursor += 2;
+                string value = Encoding.Unicode.GetString(data, begin, cursor - begin).Replace('\u03c6', ' ');
+                foreach (string line in value.Split(new char[] { ',', '\r', '\n' })) yield return line;
+                cursor += 2;
+            }
+            yield break;
+        }
         int count = BitConverter.ToUInt16(data, 0), start = 4 + count * 4;
         int units = (data.Length - start) / 2;
         SortedSet<int> offsets = new SortedSet<int>();

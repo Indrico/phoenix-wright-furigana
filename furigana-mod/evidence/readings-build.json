@@ -13,7 +13,7 @@
       "unique_lines": 44424
     }
   },
-  "lines_with_kanji": 77504,
+  "lines_with_kanji": 81010,
   "sources": [
     {
       "path": "PWAAT_Data/StreamingAssets/GS1/scenario/actionEditor.mdt",
@@ -438,7 +438,122 @@
     {
       "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sys_mes.mdt",
       "sha256": "46effb19bd515f9607951dc818e11dfcbf1c67034e3830cf60d7415604783487"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/chapter_name_gs1.bin",
+      "sha256": "b9cf68f817d7d55f537d628154c0ed21d92584b7b3fadf3a0819108b01046b97"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/chapter_name_gs2.bin",
+      "sha256": "5bef0c9f4c39d461f102b7cca7578bc4d445b10b25d1a404a554170b0efb20d2"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/chapter_name_gs3.bin",
+      "sha256": "d0ca271afee1760594290978e54baf9883698f5592cf955c4973cf10c2b6ab42"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/common_text.bin",
+      "sha256": "8de8596b4285425c0d9d42a059acf8d4e967a481e46ab61c4a868c7dfc986802"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/credit_text.bin",
+      "sha256": "fed0ccfeea193b595ed46a341c33c77a88e7e157f0d153aff8a5a99f8e47dcde"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/gallery_text.bin",
+      "sha256": "22fdf87a812f2b808c1b93539b3735d9f51f5ea0a181b7814fb39cfba0d2c55a"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/language_any.bin",
+      "sha256": "b2d2c0dc65f9b44c27777c2115735e3d9d18a4fc0bf6ad54e35b09a59c6c49b8"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/option_text.bin",
+      "sha256": "532f8ac0690f03935d67e4803e0b620f7149e80689971034e17bd90b73ad364b"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/platform_text.bin",
+      "sha256": "1027ed0c8e1db638a643356785c6c5234c6dc89f52cdf58000eb5a6915617ccd"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/save_text.bin",
+      "sha256": "56479e1e554722301cb5c37becc1a3d865d04ab0bca31f4923c977283191ef42"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/system_text.bin",
+      "sha256": "333ef96c4b25db56d7701c96f00ba5e25c7fd0c66b467fada6c6c784f29aa776"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/menu/text/title_text.bin",
+      "sha256": "85a389c6388abce56015a9c2cd259cd5f699199f8213e316491d6fef3c87d32b"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/gs1_ba.bin",
+      "sha256": "60ba09bb3765fd22f5c72fe8d27f05d23aeef364109f5231e83a29d110974dfe"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/gs1_nolb.bin",
+      "sha256": "b3d7f18615eb485f27bd6aceed1b083cd9c5a8ef1c51068b5c86a87eeef7d34e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/gs1_note.bin",
+      "sha256": "9a5e9fbb0a394b15dad7e616af4fce91fc79daabed66bc95cf80428cc007d584"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/gs1_sel.bin",
+      "sha256": "eb98ac20ecf7d35626ee98d45741c1996140ba90c87776cc58ff104e6affdb9f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/gs1.cho",
+      "sha256": "59219b98f7363b363bc5608efbd499d75cd665286c64700ad5f6089b4d4d3901"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/gs2_ba.bin",
+      "sha256": "9b66feb773dd973d4f2e8d6dcc5398f8c46e721b5415fe65b482327b41677ade"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/gs2_nolb.bin",
+      "sha256": "1d2ddfd7f045d6808fd7613c759de9a4b03072bf66b49e8474b12c1b354b8256"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/gs2_note.bin",
+      "sha256": "d23c6e74bfafc9bb386528dfe2760747ecc3ffaa4ec3b04efb7c87a35bc9769b"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/gs2_sel.bin",
+      "sha256": "2cc5d3ccb08d921a7f9572b4029d708d5cb4ec34c6cbde26f2d0710ae802c036"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/gs2.cho",
+      "sha256": "dd1f941454cd265f74251997264dc929a1dcb1f6ae9cb3338cdef760294c42d2"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/gs3_ba.bin",
+      "sha256": "010353cad470817dcad12f87c6c43de6cd3b01fc3f847fd4eefc3cc677055365"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/gs3_nolb.bin",
+      "sha256": "4788e955c2bb9b3f4474252ad736459604a3d53dac65c3c803525d32c3c22225"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/gs3_note.bin",
+      "sha256": "26a4c26afe9024a3aa8216fe2c715251b4cc8acb4b7d909501dcd66bad3885aa"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/gs3_sel.bin",
+      "sha256": "4fb31ffd5cf2e0bf5cf715dfa797879ed33421fb02b117c9a826d3d4f40e2101"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/gs3.cho",
+      "sha256": "3f729c6aa0e9649d2cf857dcea4c56e4bae6a8072b6610d26342c722c3f32f7a"
     }
   ],
-  "readings_sha256": "9717d9e307acaa4049c3ea1ee426210647b90ecd43195d788a019b6c50271f59"
+  "extra_text_files": 27,
+  "lexicon_words": 11007,
+  "uncovered_characters": {
+    "㾁": 1,
+    "侀": 1
+  },
+  "readings_sha256": "813cd88a00dbc8b2e59541e3a30d1013963a9a850b9f2e14b5ede24ab0a748f6",
+  "lexicon_sha256": "30be589ec83b70d2db164de93b7a4837d504e11ed9bd41be2ed6727e741638fd"
 }

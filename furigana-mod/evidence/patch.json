@@ -1,7 +1,7 @@
 {
   "original_sha256": "8c419d19c86812497cabf9e29b2c87651156a2d705176dadbfec9b066747d15f",
   "patched_sha256": "52cc2914a9902f329ee7914693bcccd036d1e8f961c1af4371ace1e487612e96",
-  "runtime_sha256": "d77f282bec348beafb9d8a9a5286817a93c4d05979d4ccb919d042eb637e7080",
+  "runtime_sha256": "ac2914218ca0d641ef035889496814465a302a5f403ba113b95b6f030b459756",
   "hooks": {
     "System.Void mainCtrl::Awake()": "Install",
     "System.Void MessageSystem::SetCharacter(MessageWork,System.Char)": "BeginLine"

@@ -1,19 +1,26 @@
 {
-  "checked_at_utc": "2026-10-30T15:34:22.729789+00:00",
+  "checked_at_utc": "2026-10-30T16:28:07.195621+00:00",
   "installed_file_hashes_match": true,
   "reading_tests": {
     "runtime": "Actual shipped PwaatFurigana.dll loaded by .NET 8 test harness; Unity code was not executed",
     "result": "pass",
-    "dialogue_lines": 77504,
-    "reading_spans": 141589,
+    "dialogue_lines": 81010,
+    "reading_spans": 151351,
     "cases": [
       "full-corpus lookup and span bounds",
       "context-sensitive readings",
       "incomplete-word suppression",
       "ambiguous and unique restored-text prefixes",
       "color markup and literal brackets",
-      "character-name overrides"
-    ]
+      "character-name overrides",
+      "exact date/location from reported screenshot",
+      "calendar day reading",
+      "complete and multiline UI lookup",
+      "word/kanji fallback for composite UI",
+      "all kanji in extracted menu/choice/evidence/serialized UI samples",
+      "UI bold/italic/size markup"
+    ],
+    "extracted_ui_samples": 3582
   },
   "generator_tests": {
     "result": "pass",
@@ -22,7 +29,11 @@
       "kana-only text",
       "character-name overrides",
       "compound override",
-      "katakana conversion"
+      "katakana conversion",
+      "opening date and location coverage",
+      "iteration-mark name",
+      "spaced chapter label",
+      "compound unaffected by single-kanji fallback"
     ]
   },
   "assembly_verification": {
@@ -34,18 +45,28 @@
       "runtime CLR version matches game",
       "all dependency files present",
       "runtime DLL SHA-256",
-      "reading data SHA-256"
+      "reading data SHA-256",
+      "UI lexicon SHA-256"
     ]
   },
   "restore_and_reinstall": "pass; final state patched",
   "gameplay_test": {
-    "result": "not run",
-    "reason": "Windows game; Wine/Windows runtime unavailable",
+    "result": "attempted; blocked before Unity startup",
+    "environment": "Wine 8.0 x86 and Xvfb in an isolated Debian 12 container",
+    "reason": "Steam client unavailable; executable exited 53 and logged SteamAPI_IsSteamRunning failure",
     "unverified": [
-      "overlay layout in-game",
+      "in-game overlay layout",
       "Options mouse interaction",
       "F8 input",
       "PlayerPrefs persistence across launches"
     ]
+  },
+  "layer_regression": {
+    "dialogue_text_layer": 8,
+    "previous_label_layer": 0,
+    "text_camera_culling_mask": 256,
+    "previous_label_visible_to_camera": false,
+    "new_label_layer": "inherited from source Text for dialogue and all discovered UI texts",
+    "source": "Original level0/sharedassets0.assets, decoded without modification with UnityPy and generated type trees"
   }
 }

@@ -1,12 +1,13 @@
 {
   "result": "pass",
-  "archive_sha256": "ca9fa275b1d0280da58c59ea215a3cb1407d5f4cbb70e70fad6d2fb316d1a058",
+  "archive_sha256": "bbf8fded4853b131dd1b1104ddae5aaa4ed6ed8f21b864bac8d1d9d6bfa81e7c",
   "cases": [
     "package excludes original assemblies and raw dialogue",
-    "fresh install reconstructs exact verified assembly and 77,504 reading entries",
+    "fresh install reconstructs exact verified assembly, expanded UI readings and fallback lexicon",
     "repeat install is idempotent and preserves the original backup",
     "uninstall restores exact original and retains backup",
     "repeat uninstall succeeds",
+    "upgrade from the actual previous alpha replaces the runtime/data and retains original backup",
     "unsupported/modified assemblies rejected for install and uninstall",
     "modified scenario asset rejected before changing the game",
     "corrupt release payload rejected before changing the game",

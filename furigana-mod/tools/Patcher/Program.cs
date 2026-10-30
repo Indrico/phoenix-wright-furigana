@@ -79,6 +79,8 @@ if (args[0] == "verify")
     var dataRecord = JsonDocument.Parse(File.ReadAllText(Path.Combine(mod, "evidence/readings-build.json"))).RootElement;
     if (Hash(readingsFile) != dataRecord.GetProperty("readings_sha256").GetString())
         throw new InvalidDataException("Reading data hash mismatch");
+    if (Hash(Path.Combine(root, "PWAAT_Data/StreamingAssets/Furigana/lexicon.tsv")) != dataRecord.GetProperty("lexicon_sha256").GetString())
+        throw new InvalidDataException("UI lexicon hash mismatch");
     Console.WriteLine("Original backup SHA-256 verified.");
     Console.WriteLine("Runtime CLR version, dependency files, runtime hash, and reading-data hash verified.");
     return;

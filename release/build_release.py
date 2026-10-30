@@ -31,7 +31,8 @@ def main():
     updated = game/'PWAAT_Data/Managed/Assembly-CSharp.dll'
     runtime = game/'PWAAT_Data/Managed/PwaatFurigana.dll'
     data = game/'PWAAT_Data/StreamingAssets/Furigana/readings.tsv'
-    for file, expected in [(original,patch['original_sha256']), (updated,patch['patched_sha256']), (runtime,patch['runtime_sha256']), (data,readings['readings_sha256'])]:
+    lexicon = game/'PWAAT_Data/StreamingAssets/Furigana/lexicon.tsv'
+    for file, expected in [(original,patch['original_sha256']), (updated,patch['patched_sha256']), (runtime,patch['runtime_sha256']), (data,readings['readings_sha256']), (lexicon,readings['lexicon_sha256'])]:
         if digest(file) != expected:
             raise ValueError(f'Input hash differs from verified build: {file}')
     package = args.output_dir/'staging'/'furigana-mod'
@@ -41,13 +42,16 @@ def main():
     payload.mkdir(parents=True)
     shutil.copyfile(args.cecil_path, payload/'Mono.Cecil.dll')
     shutil.copyfile(runtime, payload/'PwaatFurigana.dll')
+    shutil.copyfile(lexicon, payload/'lexicon.tsv')
     hashes = []
     for row in data.read_text(encoding='utf-8').splitlines():
         text, spans = row.split('\t')
         hashes.append(hashlib.sha256(text.encode()).hexdigest()+'\t'+spans+'\n')
     (payload/'readings-hashes.tsv.gz').write_bytes(gzip.compress(''.join(sorted(hashes)).encode(), mtime=0))
     manifest = dict(version=args.version, original_sha256=patch['original_sha256'], patched_sha256=patch['patched_sha256'],
-                    runtime_sha256=patch['runtime_sha256'], readings_sha256=readings['readings_sha256'], sources=readings['sources'],
+                    runtime_sha256=patch['runtime_sha256'], readings_sha256=readings['readings_sha256'], lexicon_sha256=readings['lexicon_sha256'], sources=readings['sources'],
+                    previous_runtime_sha256=['d77f282bec348beafb9d8a9a5286817a93c4d05979d4ccb919d042eb637e7080'],
+                    previous_readings_sha256=['9717d9e307acaa4049c3ea1ee426210647b90ecd43195d788a019b6c50271f59'],
                     payloads=[dict(path='payload/'+p.name,sha256=digest(p)) for p in sorted(payload.iterdir())])
     for name in ['Patch.ps1','GamePatch.cs','CecilPatch.cs','Install.cmd','Uninstall.cmd']:
         src = REPO/'release'/name
