@@ -1,0 +1,199 @@
+{
+  "tool": "REA 6.8.0",
+  "guide": "https://github.com/morluto/rea/blob/main/docs/managed-code-analysis.md",
+  "original_artifact": {
+    "path": "<game>/PWAAT_Data/Managed/Assembly-CSharp.dll",
+    "sha256": "8c419d19c86812497cabf9e29b2c87651156a2d705176dadbfec9b066747d15f",
+    "byte_length": 3872256,
+    "format": "pe"
+  },
+  "classification": {
+    "status": "managed",
+    "container": "pe",
+    "runtime_family": "unity-mono",
+    "implementation": "cil",
+    "managed_architecture": "anycpu",
+    "evidence": [
+      {
+        "code": "cli-header-observed",
+        "detail": "A file-backed PE CLI header and metadata root were admitted.",
+        "file_offset": 1032
+      },
+      {
+        "code": "unity-reference-observed",
+        "detail": "The admitted AssemblyRef table contains a UnityEngine reference.",
+        "file_offset": 2907390
+      },
+      {
+        "code": "managed-architecture-derived",
+        "detail": "Managed architecture anycpu is derived from PE machine and CLI flags.",
+        "file_offset": 1048
+      }
+    ]
+  },
+  "module": {
+    "name": "Assembly-CSharp.dll",
+    "generation": 0,
+    "mvid": "198ccdb4-8525-43b7-83d1-ed7cc4603988",
+    "enc_id": null,
+    "enc_base_id": null,
+    "token": "0x00000001",
+    "row_offset": 1803020
+  },
+  "assembly": {
+    "name": "Assembly-CSharp",
+    "version": "0.0.0.0",
+    "culture": null,
+    "flags": 0,
+    "hash_algorithm": 32772,
+    "public_key": {
+      "kind": "none",
+      "byte_length": 0,
+      "sha256": null,
+      "token": null
+    },
+    "token": "0x20000001",
+    "row_offset": 2907362
+  },
+  "metadata_status": "complete",
+  "members_coverage": [
+    {
+      "state": "complete",
+      "issues": []
+    },
+    {
+      "state": "complete",
+      "issues": []
+    }
+  ],
+  "selected_methods": [
+    {
+      "token": "0x06001302",
+      "declaring_type": "messageBoardCtrl",
+      "name": "load",
+      "rva": 828952,
+      "signature": {
+        "raw_length": 3,
+        "raw_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+        "resolved_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+        "kind": "method",
+        "parse_status": "decoded",
+        "calling_convention": "default has-this",
+        "generic_parameter_count": null,
+        "parameter_count": 0,
+        "return_type": "void",
+        "parameter_types": [],
+        "field_type": null,
+        "issue": null
+      }
+    },
+    {
+      "token": "0x06001323",
+      "declaring_type": "messageBoardCtrl",
+      "name": "get_line_list",
+      "rva": 833464,
+      "signature": {
+        "raw_length": 9,
+        "raw_sha256": "c71901f0d4d24007c1e3d5ab2d8a5774bfec8e9b5b1b66e2816befa86e816976",
+        "resolved_sha256": "f7227202a1fc10092e4eb236d8dfbba76a9ce93fc14276989b268d3a0e917476",
+        "kind": "method",
+        "parse_status": "decoded",
+        "calling_convention": "default has-this",
+        "generic_parameter_count": null,
+        "parameter_count": 0,
+        "return_type": "class:37<class:141>",
+        "parameter_types": [],
+        "field_type": null,
+        "issue": null
+      }
+    },
+    {
+      "token": "0x06001850",
+      "declaring_type": "MessageText",
+      "name": "Append",
+      "rva": 1157288,
+      "signature": {
+        "raw_length": 4,
+        "raw_sha256": "7cfe6eb78201f51434db0bc24d35a6faa13d1ff109cf4c314eecdedf61656b6a",
+        "resolved_sha256": "7cfe6eb78201f51434db0bc24d35a6faa13d1ff109cf4c314eecdedf61656b6a",
+        "kind": "method",
+        "parse_status": "decoded",
+        "calling_convention": "default has-this",
+        "generic_parameter_count": null,
+        "parameter_count": 1,
+        "return_type": "void",
+        "parameter_types": [
+          "char"
+        ],
+        "field_type": null,
+        "issue": null
+      }
+    },
+    {
+      "token": "0x06000973",
+      "declaring_type": "mainCtrl",
+      "name": "Awake",
+      "rva": 410210,
+      "signature": {
+        "raw_length": 3,
+        "raw_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+        "resolved_sha256": "0c9373898d2dd1c85902837a9e979cb88484e2548a008ad2b2176cc7119d09df",
+        "kind": "method",
+        "parse_status": "decoded",
+        "calling_convention": "default has-this",
+        "generic_parameter_count": null,
+        "parameter_count": 0,
+        "return_type": "void",
+        "parameter_types": [],
+        "field_type": null,
+        "issue": null
+      }
+    },
+    {
+      "token": "0x060017af",
+      "declaring_type": "MessageSystem",
+      "name": "SetCharacter",
+      "rva": 1124622,
+      "signature": {
+        "raw_length": 6,
+        "raw_sha256": "bc2c5b683abf024449b9194c5b5ef5304346eeccbcb3d76827d2643d55202209",
+        "resolved_sha256": "89d8faf9008232872520532da59010c2227eb079cbdb0a123c61b84e4db8ebaa",
+        "kind": "method",
+        "parse_status": "decoded",
+        "calling_convention": "default has-this",
+        "generic_parameter_count": null,
+        "parameter_count": 1,
+        "return_type": "void",
+        "parameter_types": [
+          "class:3044"
+        ],
+        "field_type": null,
+        "issue": null
+      }
+    },
+    {
+      "token": "0x060017b0",
+      "declaring_type": "MessageSystem",
+      "name": "SetCharacter",
+      "rva": 1124640,
+      "signature": {
+        "raw_length": 7,
+        "raw_sha256": "c929dffffe18699b48b4838df068f5388c1199409120f9cfa1eee81f5fd8fb74",
+        "resolved_sha256": "947136aff347e9ce3dbd3da3effd8a4ceb3ff833ec480ed2b94eb8340d9dca41",
+        "kind": "method",
+        "parse_status": "decoded",
+        "calling_convention": "default has-this",
+        "generic_parameter_count": null,
+        "parameter_count": 2,
+        "return_type": "void",
+        "parameter_types": [
+          "class:3044",
+          "char"
+        ],
+        "field_type": null,
+        "issue": null
+      }
+    }
+  ],
+  "unity_version": "2017.4.8f1 (globalgamemanagers string)"
+}

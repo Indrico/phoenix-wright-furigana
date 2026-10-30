@@ -1,0 +1,444 @@
+{
+  "titles": {
+    "GS1": {
+      "files": 38,
+      "unique_lines": 39775
+    },
+    "GS2": {
+      "files": 24,
+      "unique_lines": 35571
+    },
+    "GS3": {
+      "files": 44,
+      "unique_lines": 44424
+    }
+  },
+  "lines_with_kanji": 77504,
+  "sources": [
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/actionEditor.mdt",
+      "sha256": "0b7c9a95ce717c44d9e63c27f5385eaea85acf435cb11ea7cf2e256c0f1b22f0"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/ev0_mes.mdt",
+      "sha256": "91d1faf8771e9be25c2b45af375668958ab3e39e53fd6daf0e29eb7de01bd747"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc0_text.mdt",
+      "sha256": "3b3495c3056ce9a1b51f3d01cf932cc8dbc3cbe3c91523d497f01753167c77fc"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc1_0_text.mdt",
+      "sha256": "2fecd4f64c04202d48de268df2397d1e1598dcfb9056bfb1934d755d8849f50b"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc1_1_text.mdt",
+      "sha256": "949a5641afd6e2022fb6069a4373de721fadaacdb3bb4e1eb2000b9fe2383855"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc1_2_text.mdt",
+      "sha256": "b354c4fadf710af4efa50461e89c169864169e10b26162b711d9017dd6743489"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc1_3_text.mdt",
+      "sha256": "4b8d209ba78f8ac6413d99e163f83364777c0252447798def41253e65621e6a1"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc2_0_text.mdt",
+      "sha256": "9d85a27ba53a4d55a8c5d4e49166502fbc42050e2bffa389c2e2053c4e7a385d"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc2_1_text.mdt",
+      "sha256": "9210bad68016d2622b52ebef40953be55275c3cbaee2eb9bd1389ecaa6d0fb51"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc2_2_text.mdt",
+      "sha256": "b7718272b53fc9d46a3e2d141e88cd78cd8cfd50abbd1fd8790befe760a9b186"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc2_3_text.mdt",
+      "sha256": "1348da832f4243fea8258d4ef4b380b952388488eac85020a992e4329ec6d418"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc2_4_text.mdt",
+      "sha256": "752a5e51d18dd8eeb947ef1a1d661b2e802d5947e618bf819b445ff6834951c7"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc2_5_text.mdt",
+      "sha256": "858ec6a1678ab32085cc0882819995e16c4eb5b8df64939b9ea20918347abfe4"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc3_0_text.mdt",
+      "sha256": "55b8c7cfea461c8048c31eadfb24822d035c45f96959d6b18419a8e755aba21d"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc3_1_text.mdt",
+      "sha256": "80f005ee749a7bd9b16c3485069c1d1a815ecdcbf5e156c9f9bfc546e96e08bf"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc3_2_text.mdt",
+      "sha256": "a3b818156476e605544f3d38940bea845b3422c985d989e6962bc4455704326f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc3_3_text.mdt",
+      "sha256": "c158ce3ce7bdc990ff22bc4c47f5579cfee214d41ecc2e4f8e0189ea10b7e8ff"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc3_4_text.mdt",
+      "sha256": "6b1c67aa902c302257ad9909bfc75769a40d878ccae2a5c2b5fa85eb319c9c7f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc3_5_text.mdt",
+      "sha256": "d084a5e9cfcfa84501fad372da8e591c9b4eabcf18ecb1fbf317b057014c8ee9"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_0a_text.mdt",
+      "sha256": "4ca4eeecf3175df150a65131c31f706e2552612a5ad60c2baf7ec571367355ad"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_0b_text.mdt",
+      "sha256": "5754051fa4e4f97fbb0bd3a1fcffdaf8679d6c6e6f92ee60a6a2c28e4b6acc0a"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_1a_text.mdt",
+      "sha256": "a5e70704088eab872f396bf8c2c28c0872a9b7e814a1417c01bb6154431b4889"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_1b_text.mdt",
+      "sha256": "912e15c48c8df2430a8d468dec52d03df67342800054c005bf1ea86b71583a69"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_1c_text.mdt",
+      "sha256": "d251597729fda899b1ef984e40087b31862b3c5ab8d1bbcfa2a5620f5c9e2fca"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_2a_text.mdt",
+      "sha256": "8a97fcb4afb608342320b7b590730113fe7d0097d04ee5cbd9a2bc3d7d225aae"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_2b_text.mdt",
+      "sha256": "9aa0ea4142b2a40c4396144c1ec5fa2ae7c5de833137344b3f96c61612581735"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_2c_text.mdt",
+      "sha256": "7bd5a1ecafe88c144a97728d6b4e39006c0e29645dd0fc7e9c338ea1dbb815a3"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_3a_text.mdt",
+      "sha256": "0ac78c34932b83f44386b1338efb57c0aa2614129d0edbfecb939f38c0514e4e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_3b_text.mdt",
+      "sha256": "34de3bd16a0b2bbfefc5e8e596fa6fdf3a880d4ce82f9f97c8a26cafedfa03f6"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_3c_text.mdt",
+      "sha256": "ceff0918f79335d7a8868d7731274550a2ad77d5867fee0f7b07c946183b6842"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_4a_text.mdt",
+      "sha256": "715717b8113f5e83fac4198cd4fdcffb2f55016d975aae1da988ced61df4788a"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_4b_text.mdt",
+      "sha256": "177b45b3ce47bb766759c12e1d3c2d666f713615cdbb6f52238b007a13ffe085"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_4c_text.mdt",
+      "sha256": "72b1f3b1f0a6b821b10066ff39b14ba25a10d8dfc28112a94b646a53a7dae686"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_5a_text.mdt",
+      "sha256": "fb4dfb1acc393eb1410b4dbe053f107285ee1ee1ea2943c117ad9fa9addac047"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_5b_text.mdt",
+      "sha256": "ffaad63e69c3eb0766f01faff300a2bcf314d136398cfaa096f0959dac97cfaa"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_5c_text.mdt",
+      "sha256": "23c3ec34c0f8ea0085daaf0d589648930ddaad788b30571fdb960652d582fc09"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sc4_5d_text.mdt",
+      "sha256": "aebab45bb7e6c44199d1a48eb5082ac04d87a702f9213ec5f61a8ac9ccc58dac"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS1/scenario/sys_mes.mdt",
+      "sha256": "513b1d1b017853a530c84f2f2cd84f39365b717aa76eea83db9235ff8e6c59a1"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/actionEditor.mdt",
+      "sha256": "569cba9c1a2d15d8a5eef686683674881ecb40f59981fcaa918ecbc5246fed69"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc0_0_text.mdt",
+      "sha256": "5311abb278e8220f45a3afb7ec4170ba0086f18323beeeda46df6612f5cee873"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc0_1_text.mdt",
+      "sha256": "565c43eb189bf0bcfd3bdd70441ec3bc5b250b16957d4d25594b30a5c596fd66"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc1_0_text.mdt",
+      "sha256": "59326a65450353d7b581f12da6ed2851618583b138d33dc7faec5104843a550e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc1_1_0_text.mdt",
+      "sha256": "773c41004c109581ef71d236f85ba2b302e66d6312706825209abe828c8e327a"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc1_1_1_text.mdt",
+      "sha256": "6cef8ed90795fd7e7fc3160dbd4541831a30407d6f251d140ec6b828199c9440"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc1_2_text.mdt",
+      "sha256": "9b2b8403e54810ec972719bc95adb9589bec051c047bd5e38f5c56f776758f54"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc1_3_0_text.mdt",
+      "sha256": "82b61bb0b0b46f4eaf72eb095ec07450369034cf315bba311007a8a235eb5377"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc1_3_1_text.mdt",
+      "sha256": "c1ffa064da771db62ec29674667dcab7b200eabb99b9c8ca5873a5cf75908c1b"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc2_0_text.mdt",
+      "sha256": "0013bca8b252c702c30edeb7aa26274c08cac87c8bf9dc812fe45be648aa5db1"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc2_1_0_text.mdt",
+      "sha256": "88c3703b7b1c4df02be4016132759dec56506f373aac79825a6f0768adca2fda"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc2_1_1_text.mdt",
+      "sha256": "0ff6068d333d0da458b23f52b79db348c34abf7b7b9074521835d0bc86e2f04c"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc2_2_text.mdt",
+      "sha256": "89773dbf2633cbef70d4af0610534892336a9b2b61385c4856a329a53eca2a8b"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc2_3_0_text.mdt",
+      "sha256": "31267ace2cbd43e45d8fd4001a20b3b68e970a6ab548adbede56f94c656bbbde"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc2_3_1_text.mdt",
+      "sha256": "ea15746e3ba3a0047552657dd246c807bd243f0f75651927da1653d6c0ec1d7f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc3_0_0_text.mdt",
+      "sha256": "5b95ae3f4843f4bde8ab71de84e42a06d7edd3d573ff6b342fb57e41e777a37c"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc3_0_1_text.mdt",
+      "sha256": "6c364b1ef46582ba819dec9b577bb8379a70f6e3344ddb62c4fc0ab41103d10e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc3_1_0_text.mdt",
+      "sha256": "a57b9efae861f5302180e4def1a252f876e49956d6e602f0043cf9c97eb79634"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc3_1_1_text.mdt",
+      "sha256": "0e5d5cab227ba43d52a15822d0602a65026702080ba9455c2153095ab5ef53f6"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc3_2_0_text.mdt",
+      "sha256": "4e8146ad79f4875e418060f57c9358ad3f0d4163c0760de328577f2cc97c91fa"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc3_2_1_text.mdt",
+      "sha256": "7d58698a5f2ff08a12bf21d140ef1f69042a54351096dae634d52f7e4d923b7a"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc3_3_0_text.mdt",
+      "sha256": "cc89d9f359ac1387b0e898881a70d608df64075afc1d9133ed4e7cdf44fd5ae5"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sc3_3_1_text.mdt",
+      "sha256": "4291857b640496f4691c887d1a447128c41d05174136290f85643ec5405087c1"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS2/scenario/sys_mes.mdt",
+      "sha256": "4e869e1f1c1e8f9f0d622ec8d52a8ed6db1a3226d5103b787fef2c04ff5dfa23"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/actionEditor.mdt",
+      "sha256": "d840982b87a22c74f6edfcac545035f5c19ac3a8163badd9a37bf806e744b22f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc0_0_text.mdt",
+      "sha256": "50ee00859d8695178591bb211b8572aea964d7d285da62800a19ca5db59031a9"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc0_1_text.mdt",
+      "sha256": "7278c10caa678bf807e7f12b41c33ff57a21e21bb89ec0cfa3139aad8aafb99e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc0_1b_text.mdt",
+      "sha256": "1aeb07b7feaa79c59c168dcc6d00c639e05d94e5deaeec1f8bfd1bc731c6cbd0"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_0_text.mdt",
+      "sha256": "04c2e122a099533e0062d48a5accbab150f20e3cae9e74515fe95b45853c9d3f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_0b_text.mdt",
+      "sha256": "f6e7eb30ed4c569afa02936c3f9984c7750bee10b0bf021ac75520f980675322"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_1_text.mdt",
+      "sha256": "46d4c5f64aed8b22824ea66913ca4c1589ea35c9921b66b10d20267604f1544e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_1b_text.mdt",
+      "sha256": "4ea090d376d0d5cdb67d86eec485f19ba79069400022d8f06f9c69bf9d22083e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_2_text.mdt",
+      "sha256": "2a2fceeded3a29002194c9491da77ecc604fc20c6de108fa47f1ad7ef3c4bc98"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_2b_text.mdt",
+      "sha256": "bb4f7ed63d2a2b54e034890755c8869abc3d72c9224814f86272a5e528891f50"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_2c_text.mdt",
+      "sha256": "193aa0df2759ff390068b1281178531350c40681fa30e032e1548a9148be3f62"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_3_0_text.mdt",
+      "sha256": "f4c87cddf902b9e744111d6feec3a41d39edccb620efffc4837d2e4d6418e0c7"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_3_1_text.mdt",
+      "sha256": "407d3c6cfa933d9db8af045dc7dc1bfe5068ac206969c785608bb30092e2891e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc1_3_1b_text.mdt",
+      "sha256": "4456adbcf5a69166dd8ec278c94994f9c83d3b2afc2a4b968f9ec426a7f82c56"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_0_text.mdt",
+      "sha256": "b05de1fb87c8804ba92c86c9cc0e0e78661c985411213e4c9d1a7de1cceccd5f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_0b_text.mdt",
+      "sha256": "53aaaef80536fa33cb5133be42381c3c1ad7f1a00ceb64708526398b8c2b904c"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_1_text.mdt",
+      "sha256": "e6d8128fdb2a9012a3b7d5383742907ec1f2f2900e73986d460b07467b2efc09"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_1b_text.mdt",
+      "sha256": "2bef163ba26d2fe84b2a4cc9226519988dfab4242ad407bed7778b8bfb8d0627"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_2_text.mdt",
+      "sha256": "29d3f534af0586746ab32e6a11809b49e36b87e8e155337acd6d513e237e185c"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_2b_text.mdt",
+      "sha256": "2d30019d2e1e037a60b470fcd90bc629ed2a8cc0117959c84688421268e0e78b"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_2c_text.mdt",
+      "sha256": "fe191bc16e258955b0f546c7a2e7e8ed8bcc4a3a89b35cd52e32cfc84d9bff8f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_3_0_text.mdt",
+      "sha256": "cddccb629f98cc73146d7565b45d1c8d4f39e1846cabf7831514ebb8d43ab6e3"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_3_1_text.mdt",
+      "sha256": "de94b473f14f6f80c6d0ee5d4a48c742427b2de12dbb89c30043de0333a68ebe"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc2_3_1b_text.mdt",
+      "sha256": "c4baef7b391867222ed5fc75ca740e07bd5b04b2ec6d049084128ab974063e32"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc3_0_0_text.mdt",
+      "sha256": "4c6d230b3ba00e4c65bb0fe383d24979d396bbb10930f575740b845034970009"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc3_0_0b_text.mdt",
+      "sha256": "bea74c7132cc1b740d0bdd758de9454370d7a825e21de182f29ce90fdd4a21fa"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc3_0_1_text.mdt",
+      "sha256": "fd9b2212e6b666a9f6e442c66e64f3cbec0e404ccd14cc6760cc5c0777431d1f"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc3_0_1b_text.mdt",
+      "sha256": "49ac50c90206a4372ca8d551de6d1d3f217911b26344f28b8459de8fc0f1758d"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_0_0_text.mdt",
+      "sha256": "df89b14294c5d8d769088eaca1423b0e52d6559561f28cd05b02ea1310fedc1b"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_0_1_text.mdt",
+      "sha256": "b06804959a327f7a7e8fb30e716eab9cff9198c75586e58631ae25e24bca2230"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_0_1b_text.mdt",
+      "sha256": "455e977ca06b511e4cb6ba4596739a6ce510f83e046e9288ec2a699446f86b93"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_1_0_text.mdt",
+      "sha256": "c144d32f9fd07d3836bf006106e985926791d89d4b288757dd1905757f09f8f4"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_1_1_text.mdt",
+      "sha256": "ab2ebf854c6baf72770fdb8d7c039944a582e56dd9d832262f8887b1cc60a108"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_2_0_text.mdt",
+      "sha256": "88bf3fda66c3b8844145e8c1d2a10e72a0ccdfa7e8d4269f2097bf7d2530a924"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_2_0b_text.mdt",
+      "sha256": "9a0b93a656b6ee5f7bfcd059a3c94c30073e4cc7d8a45f1ee42380058f94a9f1"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_2_1_text.mdt",
+      "sha256": "4e9c4cbcc65ddc481d3e6df8ca73619b024767efefacb2e48b46d463248677e3"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_2_1b_text.mdt",
+      "sha256": "ac98827be646b304e296fd0414caa27889c42c8f594a6e493882616b5273232e"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_3_0_text.mdt",
+      "sha256": "9c39c95db8bc06546f28cd20a087a3a20c66ee36859dc8568254b3474eff4bbc"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_3_0b_text.mdt",
+      "sha256": "6a672f66b6423ed217bc9736f9f23ed8db4a6542fee1624ba6190fe6e1130665"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_3_1_text.mdt",
+      "sha256": "6e159e2032d67c40f5af5870b1363af08f0e9c1203c057a228e31c1da0463292"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_3_2_text.mdt",
+      "sha256": "d0f29435a1ff0c4f629340a8a535e7e4902cd5cc465192202345a30499349c89"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_3_2b_text.mdt",
+      "sha256": "90056946f2c89da2fb02819811604aa6f353ae68b50011064c7c7c75815974c4"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sc4_3_2c_text.mdt",
+      "sha256": "480b70b91b8645a6f3f54fffa65f8466549cae7a3efd76ff88a63b20f4974ac9"
+    },
+    {
+      "path": "PWAAT_Data/StreamingAssets/GS3/scenario/sys_mes.mdt",
+      "sha256": "46effb19bd515f9607951dc818e11dfcbf1c67034e3830cf60d7415604783487"
+    }
+  ],
+  "readings_sha256": "9717d9e307acaa4049c3ea1ee426210647b90ecd43195d788a019b6c50271f59"
+}

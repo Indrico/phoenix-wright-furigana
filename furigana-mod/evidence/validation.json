@@ -1,0 +1,51 @@
+{
+  "checked_at_utc": "2026-10-30T15:34:22.729789+00:00",
+  "installed_file_hashes_match": true,
+  "reading_tests": {
+    "runtime": "Actual shipped PwaatFurigana.dll loaded by .NET 8 test harness; Unity code was not executed",
+    "result": "pass",
+    "dialogue_lines": 77504,
+    "reading_spans": 141589,
+    "cases": [
+      "full-corpus lookup and span bounds",
+      "context-sensitive readings",
+      "incomplete-word suppression",
+      "ambiguous and unique restored-text prefixes",
+      "color markup and literal brackets",
+      "character-name overrides"
+    ]
+  },
+  "generator_tests": {
+    "result": "pass",
+    "cases": [
+      "okurigana alignment",
+      "kana-only text",
+      "character-name overrides",
+      "compound override",
+      "katakana conversion"
+    ]
+  },
+  "assembly_verification": {
+    "result": "pass",
+    "patched_method_bodies": 2,
+    "unchanged_method_bodies": 9445,
+    "checks": [
+      "original backup SHA-256",
+      "runtime CLR version matches game",
+      "all dependency files present",
+      "runtime DLL SHA-256",
+      "reading data SHA-256"
+    ]
+  },
+  "restore_and_reinstall": "pass; final state patched",
+  "gameplay_test": {
+    "result": "not run",
+    "reason": "Windows game; Wine/Windows runtime unavailable",
+    "unverified": [
+      "overlay layout in-game",
+      "Options mouse interaction",
+      "F8 input",
+      "PlayerPrefs persistence across launches"
+    ]
+  }
+}

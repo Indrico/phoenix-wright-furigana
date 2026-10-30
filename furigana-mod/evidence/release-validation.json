@@ -1,0 +1,25 @@
+{
+  "result": "pass",
+  "archive_sha256": "ca9fa275b1d0280da58c59ea215a3cb1407d5f4cbb70e70fad6d2fb316d1a058",
+  "cases": [
+    "package excludes original assemblies and raw dialogue",
+    "fresh install reconstructs exact verified assembly and 77,504 reading entries",
+    "repeat install is idempotent and preserves the original backup",
+    "uninstall restores exact original and retains backup",
+    "repeat uninstall succeeds",
+    "unsupported/modified assemblies rejected for install and uninstall",
+    "modified scenario asset rejected before changing the game",
+    "corrupt release payload rejected before changing the game",
+    "unexpected existing backup is preserved and rejected",
+    "reinstall after uninstall succeeds"
+  ],
+  "environment": "PowerShell 7.6.9 on Linux; actual Windows PowerShell 5.1 and in-game interaction remain untested",
+  "csharp_helper_compatibility": {
+    "result": "pass",
+    "compiler_language_version": "C# 5",
+    "reference_framework": ".NET Framework 4.7.2",
+    "cecil_build": "Mono.Cecil 0.11.6 net40",
+    "native_windows_execution": "not run"
+  },
+  "deterministic_rebuild": "pass; archive SHA-256 identical on repeat build"
+}

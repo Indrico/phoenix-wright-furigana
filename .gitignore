@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+**/__pycache__/
+**/backups/
+.venv/
+dist/
+PWAAT_Data/
+*.exe
+*.dll
+*.zip
+*.furigana-tmp
